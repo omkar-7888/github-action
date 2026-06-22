@@ -1,0 +1,22 @@
+#1 The name of workflow as it is appears on GitHub Actions.
+name: my-hello
+
+#2 this the steps where we describes the when this pipeline will work. like on PUSH PULL_REQUEST,DISPATCH
+on: workflow_dispatch
+
+#3 this step describes the Jobs name which we want to run 
+jobs:
+
+#4 This is the job name 
+  say-hello:
+#5. THis is the machine on which we will run our code
+    runs-on: ubuntu-latest
+
+# 6 below are the steps under step we will mention rest
+    steps:
+    # like checkout code means we will copy original code from repo to our Epharmal host machine
+      - name: Checkout code
+        uses: actions/checkout@v4
+  # This step describes the user as hello from CI pipeline
+      - name: Greet User
+        run: echo "Hello user from CI Pipeline"
